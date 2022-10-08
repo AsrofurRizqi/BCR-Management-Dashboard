@@ -12,3 +12,5 @@ Website Management database mobil menggunakan :
 ## Entity Relationship Diagram
 
 ![gambarentity](https://raw.githubusercontent.com/AsrofurRizqi/BCR-Stage3/master/dbdiagram/cars.png)
+
+## Endpoints

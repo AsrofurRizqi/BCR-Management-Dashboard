@@ -159,16 +159,30 @@ module.exports = {
     updateDataByIdweb: (req, res)=>{
         let{id}=req.body;
         let{body}=req;
-        cars.update(body,{
-            where:{id}
-        })
-        .then((data)=>{
-            let status = "updated";
-            res.redirect('/?status=' + status);
-        })
-        .catch ((err)=>{
-            res.render('main', {layout : 'index',err: err});
-        })
+        
+        if(req.image == null){
+            cars.update(body,{
+                where:{id}
+            })
+            .then((data)=>{
+                let status = "updated";
+                res.redirect('/?status=' + status);
+            })
+            .catch ((err)=>{
+                res.render('main', {layout : 'index',err: err});
+            })
+        }else{
+            cars.update({...body,image: req.image.url},{
+                where:{id}
+            })
+            .then((data)=>{
+                let status = "updated";
+                res.redirect('/?status=' + status);
+            })
+            .catch ((err)=>{
+                res.render('main', {layout : 'index',err: err});
+            })
+        }
     }
 
 }

@@ -1,4 +1,5 @@
 const cloudinary = require('cloudinary').v2;
+const e = require('express');
 const fs = require('fs');
 
 cloudinary.config({
@@ -8,25 +9,30 @@ cloudinary.config({
 });
 
 const uploadCloudinary = (req,res,next)=>{
-    const pathFile = req.file.path;
     const uniqueName = new Date().toISOString();
 
-    cloudinary.uploader.upload(
-        pathFile,
-        {
-            resource_type:'raw',
-            folder:'bcr-chptr-5',
-            public_id: `bcr-cars-${uniqueName}`,
-            tags: `express-cloudinary`,
-        },
-        (err,image)=>{
-            if(err) return res.status(500).send(err);
-            console.log("File uploaded to cloudinary")
 
-            fs.unlinkSync(pathFile);
-            req.image = image;
-            next();
-        }
-    )
+    if(req.file != null){
+        cloudinary.uploader.upload(
+            req.file.path,
+            {
+                resource_type:'raw',
+                folder:'bcr-chptr-5',
+                public_id: `bcr-cars-${uniqueName}`,
+                tags: `express-cloudinary`,
+            },
+            (err,image)=>{
+                if(err) return res.status(500).send(err);
+                console.log("File uploaded to cloudinary")
+    
+                fs.unlinkSync(req.file.path);
+                req.image = image;
+                next();
+            }
+        )
+    }else{
+        next()
+    }
+    
 }
 module.exports = uploadCloudinary;

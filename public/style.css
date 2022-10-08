@@ -100,6 +100,27 @@ body {
     margin-right: 200px !important;
     width: 1030px !important;
 }
+.btn-cancel:hover {
+    background-color: #0D28A6 !important;
+    color: white !important;
+}
+.btn-ukuran {
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    color: #AEB7E1 !important;
+    border-color: #AEB7E1 !important;
+    border-radius: 2px !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+.btn-ukuran:hover {
+    background-color: #CFD4ED !important;
+    border-color: #0D28A6 !important;
+}
+.btn-ukuran-active {
+    background-color: #CFD4ED !important;
+    border-color: #0D28A6 !important;
+}
 label {
     color: #3C3C3C;
     font-weight: 300;
@@ -135,6 +156,17 @@ label {
     background-color: #0D28A6 !important;
     color: white !important;
 }
+/* Remove Input Arrows */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 /* sidebar collapse */
 #menu-toggle {
     color: inherit;
@@ -233,6 +265,8 @@ label {
     color: #fff;
     background: none;
 }
+
+/* Media Query Sidebar */
 
 @media(min-width:768px) {
     #wrapper {
