@@ -3,21 +3,21 @@ $("#menu-toggle").click(function(e) {
         $("#wrapper").toggleClass("toggled");
 });
 function sidebarResize() {
-        if ($(window).width() >= 768) {
-            $("#wrapper").addClass("toggled");
-        } else {
-            $("#wrapper").removeClass("toggled");
-        }
+    if ($(window).width() >= 768) {
+        $("#wrapper").addClass("toggled");
+    } else {
+        $("#wrapper").removeClass("toggled");
     }
+}
     
-    $(window).resize(sidebarResize);
-    sidebarResize();
-    $("#success-alert").hide();
-    $("#delete-alert").hide();
-    $("#file-alert").hide();
+$(window).resize(sidebarResize);
+sidebarResize();
+$("#success-alert").hide();
+$("#delete-alert").hide();
+$("#file-alert").hide();
 
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
     if(urlParams.get('status') == "sukses"){
         showAlert1();
     }if(urlParams.get('status') == "delet"){

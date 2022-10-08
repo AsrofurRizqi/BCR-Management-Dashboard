@@ -138,23 +138,45 @@ module.exports = {
     updateDataById: (req, res)=>{
         let{id}=req.params;
         let{body}=req;
-        cars.update(body,{
-            where:{id}
-        })
-        .then((data)=>{
-            res.status(200).send({
-                msg: 'Success update data by id',
-                status: 200,
-                data
+        
+        if(req.image == null){
+            cars.update(body,{
+                where:{id}
             })
-        })
-        .catch((err)=>{
-            res.status(500).send({
-                msg: 'Failed update data by id',
-                msg: 500,
-                err,
+            .then((data)=>{
+                res.status(200).send({
+                    msg: 'Success update data by id',
+                    status: 200,
+                    data
+                })
             })
-        })
+            .catch((err)=>{
+                res.status(500).send({
+                    msg: 'Failed update data by id',
+                    status: 500,
+                    err,
+                })
+            })
+        }else{
+            cars.update({...body,image: req.image.url},{
+                where:{id}
+            })
+            .then((data)=>{
+                res.status(200).send({
+                    msg: 'Success update data by id',
+                    status: 200,
+                    data
+                })
+            })
+            .catch((err)=>{
+                res.status(500).send({
+                    msg: 'Failed update data by id',
+                    status: 500,
+                    err,
+                })
+            })
+        }
+
     },
     updateDataByIdweb: (req, res)=>{
         let{id}=req.body;
@@ -169,7 +191,11 @@ module.exports = {
                 res.redirect('/?status=' + status);
             })
             .catch ((err)=>{
-                res.render('main', {layout : 'index',err: err});
+                res.status(500).send({
+                    msg: "update data error",
+                    status: 500,
+                    err
+                })
             })
         }else{
             cars.update({...body,image: req.image.url},{
@@ -180,7 +206,11 @@ module.exports = {
                 res.redirect('/?status=' + status);
             })
             .catch ((err)=>{
-                res.render('main', {layout : 'index',err: err});
+                res.status(500).send({
+                    msg: "update data error",
+                    status: 500,
+                    err
+                })
             })
         }
     }
