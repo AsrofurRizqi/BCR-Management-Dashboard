@@ -16,13 +16,13 @@ Website Management database mobil menggunakan :
 ## Endpoints
 
 ##### View Endpoints :
-- ==localhost:3030/==
-- ==localhost:3030/add-cars==
-- ==localhost:3030/edit-cars/:id==
+- ```localhost:3030/```
+- ```localhost:3030/add-cars```
+- ```localhost:3030/edit-cars/:id```
 
 ##### RestAPI Endpoints :
-- ==GET localhost:3030/cars==
-- ==GET localhost:3030/cars/:id==
-- ==POST localhost:3030/cars==
-- ==DELETE localhost:3030/cars/:id==
-- ==PUT localhost:3030/cars/:id==
+- ```GET localhost:3030/cars```
+- ```GET localhost:3030/cars/:id```
+- ```POST localhost:3030/cars```
+- ```DELETE localhost:3030/cars/:id```
+- ```PUT localhost:3030/cars/:id```
