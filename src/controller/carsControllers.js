@@ -1,4 +1,5 @@
 const {cars} = require("../models/");
+const moment = require('moment');
 
 module.exports = {
     getAllCars : (req, res)=>{
@@ -21,7 +22,7 @@ module.exports = {
     getAllWeb : (req,res)=>{
         cars.findAll()
         .then((data)=>{
-            res.render('main', {layout : 'index',datacar: data ,listExists: true});
+            res.render('main', {layout : 'index',datacar: data ,moment: moment});
         })
         .catch ((err)=>{
             res.render('main', {layout : 'index',err: err});

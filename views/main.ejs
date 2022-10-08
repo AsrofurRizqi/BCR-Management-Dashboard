@@ -38,15 +38,16 @@
                 <a href="/add-cars" class="btn btn-outline-primary rounded-0 btn-add"><i class="fa-solid fa-plus"></i>  Add New Car</a>
               </div>
           </div>
-          <div class="container mt-2">
-            <button type="button" onclick="" class="btn btn-outline-secondary btn-ukuran btn-ukuran-active">All</button>
-            <button type="button" onclick="" class="btn btn-outline-secondary btn-ukuran">Small</button>
-            <button type="button" onclick="" class="btn btn-outline-secondary btn-ukuran">Medium</button>
-            <button type="button" onclick="" class="btn btn-outline-secondary btn-ukuran">Large</button>
+          <div class="container mt-2" id="ukuran-group">
+            <button type="button" onclick="sortData(this)" value="all" class="btn btn-outline-secondary btn-ukuran btn-ukuran-active">All</button>
+            <button type="button" onclick="sortData(this)" value="small" class="btn btn-outline-secondary btn-ukuran">Small</button>
+            <button type="button" onclick="sortData(this)" value="medium" class="btn btn-outline-secondary btn-ukuran">Medium</button>
+            <button type="button" onclick="sortData(this)" value="large" class="btn btn-outline-secondary btn-ukuran">Large</button>
           </div>
           <div class="container justify-content-start">
-            <div class="row col-md-11">
+            <div class="row col-md-11" id="container-car">
               <% datacar.forEach((article)=> { %>
+                <div id="car-data" class="col-md-4">
                 <div class="modal fade" id="delete-modal<%= article.id %>" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content" style="width: 380px;">
@@ -69,14 +70,14 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-4 mt-4">
+                <div class="mt-4">
                   <div class="card shadow-sm" style="padding: 20px;border-radius: 8px;width: 300px">
                     <img src="<%= article.image %>" class="card-img-top mx-auto" style="width: 270px;height: 160px">
                     <div class="card-body p-0 mt-3">
                       <h6 class="card-title" style="font-weight: 400;"><%= article.nama.charAt(0).toUpperCase() + article.nama.slice(1); %></h6>
                       <a class="text-weight-bold mt-3" style="text-decoration: none;color: black;font-size: 16px;font-weight: 700">Rp <%= article.harga.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> / hari</a>
                       <div class="mt-3">
-                        <a style="font-size: 14px;"><img src="/icons/fi_clock.png" class="icon-cars"> Updated at <%= article.updatedAt.toLocaleString()%></a>
+                        <a style="font-size: 14px;"><img src="/icons/fi_clock.png" class="icon-cars"> Updated at <%= moment(article.updatedAt).format('D MMM YYYY, hh:mm')%></a>
                       </div>
                     </div>
                     <div class="card-footer p-0 mt-3 bg-white text-center d-flex" style="border-top: none">
@@ -84,6 +85,7 @@
                       <a href="/edit-cars/<%= article.id %>" id="edit" class="btn btn-success btn-block float-right col-md-6" type="button" style="background-color: #5CB85F;border-color: #5CB85F;margin-left: 5px;"><img src="/icons/fi_edit.png"> Edit</a>
                     </div>
                   </div>    
+                </div>
                 </div>
               <% }) %>
             </div>
@@ -93,6 +95,10 @@
 
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="/moment-with-locales.min.js"></script>
   <script src="/script.js"></script>
+  <script>
+    let datacar = '<%- JSON.stringify(datacar) %>';
+  </script>
   </body>
 </html>
