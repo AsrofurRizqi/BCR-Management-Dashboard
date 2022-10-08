@@ -1,4 +1,4 @@
-##BCR - Car Management Dashboard
+## BCR - Car Management Dashboard
 
 Website Management database mobil menggunakan :
 
@@ -10,3 +10,5 @@ Website Management database mobil menggunakan :
 - Multer
 
 ## Entity Relationship Diagram
+
+![gambarentity](https://raw.githubusercontent.com/AsrofurRizqi/BCR-Stage3/master/dbdiagram/cars.png)
