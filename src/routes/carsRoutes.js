@@ -5,8 +5,8 @@ const cloudinaryMiddleware = require("../helpers/cloudinaryMiddleware")
 
 carsRoutes.get("/", carsControllers.getAllCars);
 
-carsRoutes.post("/", uploadMiddleware,cloudinaryMiddleware,carsControllers.postCars);
 carsRoutes.post("/web", uploadMiddleware,cloudinaryMiddleware,carsControllers.postCarsweb);
+carsRoutes.post("/", uploadMiddleware,cloudinaryMiddleware,carsControllers.postCars);
 
 carsRoutes.get("/:id", carsControllers.getDataById);
 
