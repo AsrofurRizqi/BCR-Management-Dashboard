@@ -22,7 +22,17 @@ Website Management database mobil menggunakan :
 
 ##### RestAPI Endpoints :
 - ```GET localhost:3030/cars```
+
+![alldata](https://raw.githubusercontent.com/AsrofurRizqi/BCR-Management-Dashboard/master/dbdiagram/rest-image/alldata.png)
 - ```GET localhost:3030/cars/:id```
+
+![byid](https://raw.githubusercontent.com/AsrofurRizqi/BCR-Management-Dashboard/master/dbdiagram/rest-image/byid.png)
 - ```POST localhost:3030/cars```
+
+![postdata](https://raw.githubusercontent.com/AsrofurRizqi/BCR-Management-Dashboard/master/dbdiagram/rest-image/postdata.png)
 - ```DELETE localhost:3030/cars/:id```
+
+![deletedata](https://raw.githubusercontent.com/AsrofurRizqi/BCR-Management-Dashboard/master/dbdiagram/rest-image/deletedata.png)
 - ```PUT localhost:3030/cars/:id```
+
+![updatedata](https://raw.githubusercontent.com/AsrofurRizqi/BCR-Management-Dashboard/master/dbdiagram/rest-image/updatedata.png)
